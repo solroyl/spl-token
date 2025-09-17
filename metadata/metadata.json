@@ -1,0 +1,12 @@
+{
+  "name": "SOL Royale",
+  "symbol": "SRYL",
+  "description": "SOL Royale is the next-gen Solana battle game token ⚔️",
+  "image": "https://raw.githubusercontent.com/solroyl/solroyl-token/main/assets/<MINT_ADDRESS>/logo.png",
+  "extensions": {
+    "website": "https://solroyl.com",
+    "twitter": "https://twitter.com/solroyl",
+    "discord": "https://discord.gg/<invite>"
+  },
+  "tags": ["gaming", "solana", "royale"]
+}
