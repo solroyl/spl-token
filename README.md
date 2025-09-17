@@ -4,14 +4,10 @@
 **SRYL** is the native token of the **SOL Royale** ecosystem, built on [Solana](https://solana.com).  
 It powers in-game mechanics, governance, and community rewards, creating a sustainable and transparent economy.  
 
----
-
 ## Features
 - SPL-compatible token
 - Utility for gameplay, staking, and rewards
 - Designed with community and scalability in mind
-
----
 
 ## 📊 Tokenomics  
 - **Ticker:** `SRYL`  
@@ -22,5 +18,3 @@ It powers in-game mechanics, governance, and community rewards, creating a susta
   - Governance rights  
   - In-game rewards & staking  
   - Marketplace transactions  
-
----
