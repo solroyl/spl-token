@@ -6,9 +6,11 @@
   "extensions": {
     "website": "https://solroyl.com",
     "twitter": "https://x.com/solroyl",
-    "discord": "https://discord.gg/<invite>",
+    "discord": "",
     "telegram": "https://t.me/solroyl",
-    "github": "https://github.com/solroyl"
+    "github": "https://github.com/solroyl",
+    "whitepaper": "",
+    "coingeckoId": ""
   },
-  "tags": ["gaming", "solana", "royale"]
+  "tags": ["gaming", "solana", "royale", "nft", "metaverse", "crypto"]
 }
