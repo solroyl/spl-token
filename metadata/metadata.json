@@ -5,8 +5,10 @@
   "image": "https://raw.githubusercontent.com/solroyl/solroyl-token/main/assets/<MINT_ADDRESS>/logo.png",
   "extensions": {
     "website": "https://solroyl.com",
-    "twitter": "https://twitter.com/solroyl",
-    "discord": "https://discord.gg/<invite>"
+    "twitter": "https://x.com/solroyl",
+    "discord": "https://discord.gg/<invite>",
+    "telegram": "https://t.me/solroyl",
+    "github": "https://github.com/solroyl"
   },
   "tags": ["gaming", "solana", "royale"]
 }
