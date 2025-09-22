@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // modern JS features
+    "module": "ESNext", // ESM modules
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

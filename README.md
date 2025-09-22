@@ -8,7 +8,7 @@ It powers in-game mechanics, governance, and community rewards, creating a susta
 - SPL-compatible token
 - Utility for gameplay, staking, and rewards
 - Designed with community and scalability in mind
-- Revoke Freeze Authority (to prevent token from being frozen) [https://docs.solana.com/developing/programming-model/permissions]
+- Revoke Freeze Authority (to prevent token from being frozen)
 - Revoke Mint Authority (to prevent token from being minted)
 
 ## 📊 Tokenomics
