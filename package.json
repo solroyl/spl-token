@@ -1,0 +1,25 @@
+{
+  "name": "sryl-token",
+  "version": "1.0.0",
+  "description": "**SRYL** is the native token of the **SOL Royale** ecosystem, built on [Solana](https://solana.com). It powers in-game mechanics, governance, and community rewards, creating a sustainable and transparent economy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solroyl/sryl-token.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/solroyl/sryl-token/issues"
+  },
+  "homepage": "https://github.com/solroyl/sryl-token#readme",
+  "dependencies": {
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4"
+  }
+}

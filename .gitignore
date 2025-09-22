@@ -1,5 +1,17 @@
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# TypeScript files
 *.ts
 
