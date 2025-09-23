@@ -12,6 +12,6 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# TypeScript files
-*.ts
+# Wallets
+wallet/*
 
