@@ -45,7 +45,7 @@ const metaplex = Metaplex.make(connection).use(keypairIdentity(payer));
 
 // --- Metadata Configuration ---
 const METADATA_NAME = 'SOL Royale';
-const METADATA_SYMBOL = 'SRYL 2';
+const METADATA_SYMBOL = 'SRYL';
 const METADATA_URI =
   'https://raw.githubusercontent.com/solroyl/sryl-token/refs/heads/main/metadata.json';
 const SELLER_FEE_BASIS_POINTS = 0; // BigInt
