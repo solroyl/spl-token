@@ -12,6 +12,15 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Wallets
-wallet/*
+# Wallets and keys
+# /wallet/
+# /src/wallet/
+*.json
+!package.json
+!tsconfig.json
+!metadata.json
 
+# Don't commit secret keys or sensitive files
+*.key
+*.pem
+*.secret
