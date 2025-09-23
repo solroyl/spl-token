@@ -1,4 +1,5 @@
 import { keypairIdentity, Metaplex } from '@metaplex-foundation/js';
+import { TokenStandard } from '@metaplex-foundation/mpl-token-metadata';
 import { clusterApiUrl, Connection, Keypair, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
@@ -22,15 +23,17 @@ try {
   process.exit(1);
 }
 
-// --- Load Vanity Mint Keypair ---
+// --- Load Mint Keypair (or public key if you don't need to sign) ---
 if (!process.env.VANITY_FILE) {
   console.error('❌ Missing VANITY_FILE in .env');
   process.exit(1);
 }
 let mintPubkey: PublicKey;
+let mintKeypair: Keypair | null = null;
 try {
   const vanitySecret = JSON.parse(fs.readFileSync(process.env.VANITY_FILE, 'utf-8'));
-  mintPubkey = Keypair.fromSecretKey(Uint8Array.from(vanitySecret)).publicKey;
+  mintKeypair = Keypair.fromSecretKey(Uint8Array.from(vanitySecret));
+  mintPubkey = mintKeypair.publicKey;
   console.log('✅ Mint public key loaded:', mintPubkey.toBase58());
 } catch (err) {
   console.error('❌ Failed to load vanity mint keypair:', err);
@@ -45,7 +48,7 @@ const METADATA_NAME = 'SOL Royale';
 const METADATA_SYMBOL = 'SRYL';
 const METADATA_URI =
   'https://raw.githubusercontent.com/solroyl/sryl-token/refs/heads/main/metadata.json';
-const SELLER_FEE_BASIS_POINTS = 0; // 0% royalties
+const SELLER_FEE_BASIS_POINTS = 0n; // BigInt
 
 // --- Main Function ---
 async function addMetadata() {
@@ -60,18 +63,19 @@ async function addMetadata() {
     // Check if mint exists
     const mintInfo = await connection.getAccountInfo(mintPubkey);
     if (!mintInfo) {
-      throw new Error(`❌ Mint address ${mintPubkey.toBase58()} does not exist`);
+      throw new Error(`❌ Mint address ${mintPubkey.toBase58()} does not exist.`);
     }
 
-    // Check if metadata already exists
+    // Attempt to fetch metadata using the NFTs API to check if it exists
     const existingMetadata = await metaplex
       .nfts()
       .findByMint({ mintAddress: mintPubkey })
       .catch(() => null);
 
     if (existingMetadata) {
-      console.log('ℹ️ Metadata already exists for this mint. Updating instead.');
-      // Update existing metadata
+      console.log('ℹ️ Metadata already exists for this mint. Updating...');
+
+      // **FIX:** Use the `nfts()` API to update the metadata
       const { response } = await metaplex.nfts().update({
         nftOrSft: existingMetadata,
         name: METADATA_NAME,
@@ -87,18 +91,23 @@ async function addMetadata() {
       return;
     }
 
-    // Create metadata for existing mint
+    console.log('ℹ️ Metadata does not exist for this mint. Creating...');
+
+    // Use the `nfts()` API to create metadata for an existing mint
     const { nft } = await metaplex.nfts().create({
       uri: METADATA_URI,
       name: METADATA_NAME,
       symbol: METADATA_SYMBOL,
       sellerFeeBasisPoints: SELLER_FEE_BASIS_POINTS,
-      useExistingMint: mintPubkey, // Use the existing mint
       isMutable: true,
-      tokenOwner: payer.publicKey, // Ensure payer is the token owner
+      tokenStandard: TokenStandard.Fungible,
+      mintTokens: false, // Since we're using an existing mint
+      mintAuthority: payer,
+      updateAuthority: payer,
+      useExistingMint: mintPubkey,
     });
 
-    console.log('✅ Metadata successfully added!');
+    console.log('✅ Metadata successfully created!');
     console.log('Mint address:', mintPubkey.toBase58());
     console.log('Metadata address:', nft.metadataAddress.toBase58());
   } catch (err: any) {

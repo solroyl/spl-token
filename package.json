@@ -8,6 +8,7 @@
     "mint-token": "esrun src/mint-token.ts",
     "mint-supply": "esrun src/mint-supply.ts",
     "add-metadata": "esrun src/add-metadata.ts",
+    "disable-authorities": "esrun src/disable-authorities.ts",
     "test": "echo \"No tests yet\" && exit 0"
   },
   "repository": {
