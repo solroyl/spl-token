@@ -48,7 +48,7 @@ const METADATA_NAME = 'SOL Royale';
 const METADATA_SYMBOL = 'SRYL';
 const METADATA_URI =
   'https://raw.githubusercontent.com/solroyl/sryl-token/refs/heads/main/metadata.json';
-const SELLER_FEE_BASIS_POINTS = 0n; // BigInt
+const SELLER_FEE_BASIS_POINTS = 0; // BigInt
 
 // --- Main Function ---
 async function addMetadata() {
